@@ -19,21 +19,25 @@ public class Adapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        return super.instantiateItem(container, position);
+        //here we return the view object
+        View view = layoutInflater.inflate(layouts[position],container,false);
+        container.addView(view);
+        return view;
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return layouts.length;
     }
 
     @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return false;
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
+        //here we compare the view
+        return view == o;
     }
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        super.destroyItem(container, position, object);
+        container.removeView((View)object);
     }
 }

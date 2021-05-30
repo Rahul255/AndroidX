@@ -10,6 +10,7 @@ public class Slider extends AppCompatActivity {
     ViewPager viewPager;
     Button btnNext;
     int[] layouts;
+    Adapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,5 +19,13 @@ public class Slider extends AppCompatActivity {
 
         viewPager = findViewById(R.id.pager);
         btnNext = findViewById(R.id.nextBtn);
+
+        layouts =new int[] {
+                R.layout.slider1,
+                R.layout.slider2,
+                R.layout.slider3,
+        };
+        adapter = new Adapter(this,layouts);
+        viewPager.setAdapter(adapter);
     }
 }
