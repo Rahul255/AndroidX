@@ -28,9 +28,11 @@ public class Splash extends AppCompatActivity {
                 if(luncherManager.isFirstTime()){
                     luncherManager.setIsFirstLunch(false);
                     startActivity(new Intent(getApplicationContext(),Slider.class));
+                    finish();
                 }
                 else {
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    finish();
                 }
             }
         },2000);
