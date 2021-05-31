@@ -9,6 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 public class Splash extends AppCompatActivity {
+    LuncherManager luncherManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +19,19 @@ public class Splash extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
 
+        luncherManager = new LuncherManager(this);
+
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(),Slider.class));
+                if(luncherManager.isFirstTime()){
+                    luncherManager.setIsFirstLunch(false);
+                    startActivity(new Intent(getApplicationContext(),Slider.class));
+                }
+                else {
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                }
             }
         },2000);
     }

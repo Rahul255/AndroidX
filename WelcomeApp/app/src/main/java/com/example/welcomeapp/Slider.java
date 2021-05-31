@@ -3,6 +3,7 @@ package com.example.welcomeapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -44,6 +45,7 @@ public class Slider extends AppCompatActivity {
                 else
                 {
                     //go to the main activity
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 }
             }
         });
