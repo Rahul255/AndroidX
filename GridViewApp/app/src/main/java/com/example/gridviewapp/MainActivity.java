@@ -1,6 +1,7 @@
 package com.example.gridviewapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -29,13 +30,25 @@ public class MainActivity extends AppCompatActivity {
         titles.add("Third Item");
         titles.add("Fourth Item");
 
+        titles.add("First Item");
+        titles.add("Second Item");
+        titles.add("Third Item");
+        titles.add("Fourth Item");
+
+        images.add(R.drawable.ic_baseline_airline_seat_flat_angled_24);
+        images.add(R.drawable.ic_baseline_airplanemode_active_24);
+        images.add(R.drawable.ic_baseline_brightness_6_24);
+        images.add(R.drawable.ic_baseline_build_24);
+
         images.add(R.drawable.ic_baseline_airline_seat_flat_angled_24);
         images.add(R.drawable.ic_baseline_airplanemode_active_24);
         images.add(R.drawable.ic_baseline_brightness_6_24);
         images.add(R.drawable.ic_baseline_build_24);
 
         adapter = new Adapter(this,titles,images);
-        
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false);
+        dataList.setLayoutManager(gridLayoutManager);
+        dataList.setAdapter(adapter);
 
     }
 }
