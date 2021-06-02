@@ -1,6 +1,7 @@
 package com.example.gridviewapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +57,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(v.getContext(),"New  -> " + getAdapterPosition(),Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(v.getContext(),Data.class);
                 }
             });
         }
